@@ -1,0 +1,30 @@
+<div class="videos">
+   <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/{{firstVideoId}}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+   ></iframe>
+   <aside class="video-list">
+      {{#each videos}}
+         {{#if this.isFirstVideo}}
+            <div class="video playing" data-id="{{this.videoId}}">
+               <img src="{{this.thumbnail.url}}" width="{{this.thumbnail.width}}" height="{{this.thumbnail.height}}" />
+               <p>{{this.title}}</p>
+            </div>
+         {{else}}
+            <div class="video" data-id="{{this.videoId}}">
+               <img src="{{this.thumbnail.url}}" width="{{this.thumbnail.width}}" height="{{this.thumbnail.height}}" />
+               <p>{{this.title}}</p>
+            </div>
+         {{/if}}
+      {{/each}}
+      <button>Load More</button>
+   </aside>
+</div>
+
+<script src="/public/player.js" defer></script>

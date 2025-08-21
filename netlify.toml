@@ -1,0 +1,14 @@
+[functions]
+  external_node_modules = ["express", "express-handlebars", "serverless-http"]
+  node_bundler = "esbuild"
+  included_files = ["src/**"]
+[[redirects]]
+  force = true
+  from = "/public/*"
+  status = 200
+  to = "/public/:splat"
+[[redirects]]
+  force = true
+  from = "/*"
+  status = 200
+  to = "/.netlify/functions/index/:splat"
